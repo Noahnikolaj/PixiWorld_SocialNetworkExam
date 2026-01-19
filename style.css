@@ -1,0 +1,1762 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+:root{
+  --bg:#f6f3ff;
+  --card:#fff;
+  --accent:#fbce65;
+  --muted:#8b83a8;
+  --shadow: 0 6px 18px rgba(66,66,90,0.08);
+  --radius:12px;
+  --pixel: "Press Start 2P", monospace;
+  --hovered: #fb92004a;
+  --bulletboard: #efcead;
+  --paper: #f1ecdf;
+  --lightmain: #6b6b8a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-image: url('img/Backgrounds/normal_background_sky.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:40px;
+  /* My Custom cursor I made using a template and pixilart.com */
+  cursor: url('img/Cursors/sword_cursor.png') 5 10, auto;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jacquarda-bastarda-9-regular {
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.tiny5-regular {
+  font-family: "Tiny5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.h3 {
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+}
+
+
+
+.topbar{
+  margin-top: 10px;
+  display:flex;
+  align-items:stretch;
+  padding: 10px;
+  background-image: url('img/LongtopBar.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 370px;
+  position: fixed;
+  left: 5px;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.logo{
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing:2px;
+
+  color:#2b2b5c;
+  font-size:20px;
+  padding: 70px;
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.logo-img {
+  width: 100px;
+  height: 100px; 
+  object-fit: contain;
+}
+
+.nav{
+  display:flex;
+  flex-direction: column;
+  gap:8px;
+  padding: 1px;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+.nav-btn{
+  font-family: "Tiny5", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display:flex;
+  align-items: center;
+  background:transparent;
+  border:2px solid transparent;
+  padding:12px 10px;
+  border-radius:12px;
+  cursor:pointer;
+  letter-spacing:0.5px;
+  color:#2b2b5c;
+  text-align: left;
+  border: none;
+  width: 60%;
+}
+.nav-btn.active{
+  
+  background: linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+  color:#033449;
+  box-shadow:linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+  transition: transform 0.2s;
+  transform: scale(110%);
+  
+}
+.nav-btn:hover{
+    background: linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+  color:#033449;
+  box-shadow:linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+  transition: transform 0.2s;
+  transform: scale(110%);
+  
+}
+.button{
+  background:var(--accent);
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+
+  font-weight:700;
+  box-shadow:0 6px 10px rgba(236, 169, 47, 0.25);
+}
+.button:hover{
+  box-shadow:0 8px 14px rgba(70, 35, 224, 0.35);
+}
+.button:active{
+  box-shadow:0 4px 6px rgba(54, 28, 255, 0.2);
+}
+
+.container{
+  max-width: 100%; 
+  margin:18px auto;
+  padding:0 16px;
+  margin-left: 380px; /* Increase to match sidebar width (360px) + padding */
+  margin-right: 20px; /* add right margin */
+  flex: 1 0 auto;
+}
+
+.section-title{
+  display: block;              
+  margin: 0 0 12px 0;
+  padding: 12px 14px;
+  background: #22c0d8;      
+  color: #ffffff;      
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+}
+
+.section-title_feed{
+  display: block;              
+  margin: 0 0 12px 0;
+  padding: 12px 14px;
+  background: #824c35;        
+  color: #ffffff;               
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+}
+.section-title_feed {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* make the text take remaining space so it wraps nicely */
+.section-title_feed > span:first-child {
+  flex: 1 1 auto;
+  order: 1;
+}
+
+/* ensure clock sits were it  is supposed to */
+.section-title_feed > #clock {
+  flex: 0 0 auto;
+  order: 2;
+  margin-left: 12px;
+}
+.clock {
+  font-family: "Jersey 10", sans-serif;
+  font-size: 30px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.06);
+  color: #dd5523;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06) inset;
+  min-width: 96px;
+  text-align: center;
+  line-height:1;
+  letter-spacing: .6px;
+  position: relative;
+  animation: none;
+}
+
+/* subtle neon-like glow during bright frames for nicer flicker */
+.clock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  
+}
+
+/* quick blink used when tick updates (triggered by JS each second) */
+@keyframes clock-blink {
+  0%   { opacity: 1; transform: translateY(0); }
+  35%  { opacity: 0.25; transform: translateY(-1px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* class toggled by JS on every tick */
+.clock.clock-flick {
+  animation: clock-blink 180ms ease-in-out;
+}
+
+/* keep reduced motion respectful */
+@media (prefers-reduced-motion: reduce) {
+  .clock.clock-flick { animation: none; opacity: 1; transform: none; }
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:12px;
+}
+
+/* some Cards */
+.card{
+  background:var(--paper);
+  border-radius:12px;
+  padding: 12px;
+
+  box-shadow:var(--shadow);
+  border:4px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  padding: 12px;
+  overflow: hidden;
+}
+.card-head{display:flex;gap:12px;align-items:center;flex: 0 0 auto;min-height: 56px;position: relative;}
+
+/* ensure header can position the delete button */
+.card-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 0 0 auto;
+  min-height: 56px;
+  position: relative; /* needed for absolute-positioned header-delete */
+}
+
+.card-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:flex-start;
+  flex: 0 0 auto;
+  min-height:44px;
+  padding-top:4px;
+
+  /* allow buttons to wrap to next line instead of overflowing the card */
+  flex-wrap: wrap;
+}
+
+/* allow buttons to shrink slightly when space is tight */
+.card-actions .tiny,
+.card-actions .like-btn,
+.card-actions .delete-post,
+.card-actions .comment-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  flex: 0 1 auto;
+  min-width:44px;         
+  height:36px;
+  padding:6px 10px;
+  border-radius:8px;
+  box-sizing:border-box;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+/* reduce gap on very small cards */
+@media (max-width: 360px) {
+  .card-actions { gap:6px; }
+  .card-actions .tiny,
+  .card-actions .like-btn,
+  .card-actions .delete-post,
+  .card-actions .comment-btn { min-width:40px; padding:6px 8px; }
+}
+
+.avatar{
+  width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#ffd6e0,#d7f3ff);
+  box-shadow:inset 0 2px rgba(255,255,255,0.6);
+  
+}
+.avatar-wrap { position: relative; display: inline-block; }
+
+.avatar-edit{
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  background: #ffce6b;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+  font-size: 14px;
+}
+.avatar-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+.avatar.large {
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, pointer;
+}
+
+.meta{font-weight:500;color:var(--muted); font-family: "Jersey 10", sans-serif; letter-spacing: 0.5px; font-size:20px;}
+.time{font-size:12px;color:#9a98b4}
+
+.card-text{margin:10px 0;
+  line-height:1.2;
+  font-size:14px;
+  flex: 1 1 auto;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+ }
+  
+.card-actions{display:flex;gap:8px;align-items:center;justify-content: flex-start;flex: 0 0 auto;}
+
+.tiny{
+  background:#f0f6ff;border:none;padding:6px 8px;border-radius:8px; cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+}
+
+.profile-card{
+  
+  background:var(--card);
+  padding:14px;border-radius:12px;box-shadow:var(--shadow);margin-bottom:12px;
+}
+.profile-top{display:flex;gap:12px;align-items:center}
+.bio{
+  color:var(--lightmain);
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  margin:8px 0
+}
+.name{
+  margin:0;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.badge-row{display:flex;gap:8px;flex-wrap:wrap}
+.badge{
+  background:linear-gradient(135deg,#fff7e6,#e3fbe8);
+  padding:8px;border-radius:10px;min-width:120px;text-align:center;box-shadow:var(--shadow);
+}
+.badge small{display:block;color:#6b6b8a;font-size:11px;margin-top:6px}
+
+.challenge-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.challenge-card{background:linear-gradient(180deg,#fff,#f7fbff);padding:12px;border-radius:12px;box-shadow:var(--shadow)}
+.challenge-card h4{margin:0 0 8px 0}
+.primary{background:#ffce6b;border:none;padding:8px 12px;border-radius:10px;cursor:pointer } 
+
+.hidden{display:none}
+.footer{
+  text-align:center;
+  margin-top:20px;
+  margin-left: 220px;
+  color:#6b6b8a;
+  font-size:12px;
+}
+.small-title{
+  margin:8px 0;
+  color:var(--lightmain);
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  text-shadow: 
+            -1px -1px 0 #bebed7,  
+            1px -1px 0 #bebed7,
+            -1px 1px 0 #bebed7,
+            1.5px 1.5px 0 #bebed7;
+}
+
+
+#feed {
+  background-color: var(--bulletboard);
+  background-size: cover;
+  background-position: center;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  padding: 20px;
+  border-radius: 20px;
+  border-width: 50px;
+  border-style: solid;
+  border-image: url(img/border3.png) 300 round;
+  min-height: 100%;
+  width: 100%; 
+  position: relative;
+  z-index: 1; 
+   justify-content: flex-start;
+}
+
+.icon{
+  width:15px;
+  height:15px;
+  margin-right:8px;
+  flex: 0 0 20px;
+  color: inherit;
+  vertical-align: middle;
+}
+
+.post-form{
+  max-width: 530px;
+  margin: 18px auto 90px;
+  background-color: var(--paper);
+  background-size: cover;
+  background-position: center;
+  background-origin: border-box;
+  background-clip: border-box;
+  
+  
+  border-width: 30px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: url(img/paper_frame.png) 20 round;
+  position: relative;
+ justify-content: flex-start;
+
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  
+}
+
+/* place the post form on the right side of the viewport on larger screens */
+.post-form {
+  position: fixed;
+  
+  right: 28px;
+  top: 20px;             
+  width: 340px;
+  max-width: 34vw;
+  margin: 0;              
+  z-index: 1200;
+  max-height: calc(100vh - 160px);
+  overflow: auto;
+}
+
+/* if viewport height is small */
+@media (max-height: 680px) {
+  .post-form { top: 80px; max-height: calc(100vh - 110px); }
+}
+
+/* mobile / narrow screens: revert to normal flow (stacked) */
+@media (max-width: 900px) {
+  .post-form {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin: 18px auto 90px;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* optional: avoid overlapping feed content by adding right padding to main container */
+.container {
+  padding-right: 400px; 
+}
+@media (max-width: 900px) {
+  .container { padding-right: initial; }
+}
+
+.post-form textarea {
+    width: 100%;
+     min-height: 96px;
+    height: 100%;
+    max-height: 280px;
+    line-height: 30px;
+    resize: none;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+    box-sizing: border-box;
+    background: linear-gradient(transparent, transparent 28px, #a58848 28px);
+    background-size: 30px 30px;
+}
+.post-form .primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #c22b2b);
+  color: #fff;
+  border: none;
+  border-radius: 30px 30px 50px 15px;
+  cursor: pointer;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+.post-form .primary:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12); 
+  background: radial-gradient(circle at 30% 30%, #ff7b7b, #d33b3b);
+
+}
+
+.post-form .primary:active { 
+  transform: translateY(1px); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18); 
+  background: radial-gradient(circle at 30% 30%, #c66b6b, #862929);
+
+}
+
+.post-form .button {
+  padding: 8px 12px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Like button visual when toggled */
+.like-btn {
+  transition: background-color .12s ease, color .12s ease, transform .06s ease;
+  border-radius: 8px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  padding: 6px 10px;
+  background: transparent;
+  color: #4b4b6a;
+}
+.like-btn.liked {
+  background: linear-gradient(180deg,#d7f0b4,#7fd836);
+  color: inherit;
+  font-weight:500; 
+  box-shadow: 0 6px 14px rgba(122,33,64,0.12);
+}
+.like-btn:hover {
+  background: linear-gradient(180deg,#d7f0b4,#7fd836);
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.comment-btn {
+  background: transparent;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .12s ease, color .12s ease;
+  color: #4b4b6a;
+}
+
+.comment-btn:hover {
+  background: linear-gradient(180deg,#ffd6e0,#ffb3c6);
+  color: #7a2140;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* ensure icon/text inside button doesn't wrap */
+.card-actions .tiny > * { white-space: nowrap; }
+
+/* header delete button style (top-right of card-head) */
+.header-delete {
+  position: absolute;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-width: 36px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* hover/active without affecting layout */
+.header-delete:hover { 
+  transform: translateY(-2px); 
+  background: linear-gradient(180deg,#ffd6e0,#ffb3c6);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08); 
+}
+.header-delete:active { transform: translateY(0); box-shadow: 0 4px 8px rgba(0,0,0,0.12); }
+
+/* size the svg icon inside delete buttons */
+.delete-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+}
+
+/* ensure header delete button keeps padding around the icon */
+.header-delete { padding: 6px; }
+.header-delete .delete-icon { pointer-events: none; }
+
+/* default (normal) cursor for the page */
+body {
+  cursor: url('img/Cursors/sword_cursor.png') 5 10, auto;
+}
+
+/* hover cursor for designated elements — add class="hoverable" where desired */
+.hoverable,
+.nav-btn,
+.button,
+.tiny,
+a,
+button {
+  /* keep default until hovered */
+  cursor: inherit;
+}
+.primary:hover,
+.hoverable:hover,
+.nav-btn:hover,
+.button:hover,
+.tiny:hover,
+a:hover,
+button:hover {
+  cursor: url('img/Cursors/pointer-cursor.png') 10 20, pointer;
+}
+
+/* clicked/active cursor while pressing */
+.hoverable:active,
+.primary:active,
+.nav-btn:active,
+.button:active,
+.tiny:active,
+a:active,
+button:active {
+  cursor: url('img/Cursors/clicked-pointer-cursor.png') 10 20, auto;
+}
+
+textarea {
+  cursor: url('img/Cursors/big_writing.png') 22 52, auto;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+.rules-list {
+  margin: 8px 0 0 0;
+  padding:0 0 0 10px;
+  list-style:none;
+  display:block;
+}
+
+.nav-btn.report-btn {
+  
+  width: 75%;
+ 
+ 
+}
+.nav-btn.report-btn.active{
+  
+  background: linear-gradient(to left, rgba(236, 9, 9, 0.426), rgba(229, 24, 24, 0.534));
+  
+  color:#ab1109;
+  box-shadow:linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+}
+.nav-btn.report-btn:hover{
+    background: linear-gradient(to left, rgba(236, 9, 9, 0.426), rgba(229, 24, 24, 0.534));
+  color:#ab1109;
+  box-shadow:linear-gradient(to left, rgba(255,0,0,0), rgba(58, 36, 229, 0.396));
+  transition: transform 0.2s;
+  transform: scale(110%);
+  
+}
+
+.help-section {
+  margin-left: 80px;
+  margin-top: 55%;
+  background: none;
+  display: grid;
+  gap: 10px;          
+  align-items: center;
+  width: 70%;
+
+}
+
+
+
+
+/* visually hidden helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* header friend toggle (used on each dummy post) */
+.header-friend,
+.toggle-friend {
+  
+  /* smaller compact buttons */
+  font-family: "Jersey 10", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  gap: 6px;
+  padding: 4px 8px;
+  height: 30px;
+  min-width: 64px;
+  border-radius: 6px;
+  font-weight: 500;
+  
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: transparent;
+  color: #263044;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
+  flex: 0 0 auto;
+}
+.toggle-friend:hover {
+  transition: transform .8s ease;
+  background: linear-gradient(180deg,#ec5050,#d61a13);
+  
+  box-shadow: none;
+}
+
+/* reduce icon size inside button */
+.header-friend img,
+.toggle-friend img {
+  width: 14px;
+  height: 14px;
+}
+
+/* meta-placed variant */
+.meta-friend {
+   letter-spacing: 0.5px;
+  padding: 4px 8px;
+  font-size: 15px;
+  min-width: 64px;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+.lightskyBtn{
+     font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 160px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: #323F58;
+  border: 2px solid #b5b5db;
+  color: #87A5DB;
+  
+}
+.lightskyBtn:hover {
+  background: radial-gradient(circle at 30% 30%, #9de06a, #5ed32a);
+  box-shadow: 0 6px 14px rgba(94, 211, 42, 0.35);
+  color: #fff;
+}
+
+/* profile-level toggle */
+#toggleFriendBtn {
+  padding: 4px 8px;
+  font-size: 14px;
+  min-width: 64px;
+}
+
+/* Drawing area & tools */
+.drawing-area {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* make canvas take remaining space, tools a fixed column */
+.drawing-area canvas {
+  flex: 1 1 auto;
+  min-height: 360px;
+  max-height: 72vh;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  display: block;
+  background: #ffffff;
+  cursor: url('img/Cursors/big_writing.png') 22 52, auto;
+}
+
+/* tools column */
+.drawing-tools {
+   font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  
+  letter-spacing: 0.5px;
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,243,238,0.96));
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(10,12,30,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  align-self: flex-start;
+}
+
+/* labels / controls */
+.drawing-tools label {
+  font-size: 20px;
+  color: #4b4b6a;
+  font-weight: 100;
+}
+.drawing-tools input[type="color"] {
+  width: 90px;
+  height: 50px;
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+}
+.drawing-tools input[type="range"] {
+  width: 100%;
+  accent-color: #FF9720;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+}
+
+/* make clear button full width and diff */
+.drawing-tools .button,
+.drawing-tools .download {
+   font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  padding: 8px 10px;
+  background: transparent;
+  border: 1px solid rgb(46, 35, 57);
+  color: rgb(46, 35, 57);
+}
+.drawing-area .download:hover {
+  background: radial-gradient(circle at 30% 30%, #9de06a, #5ed32a);
+  box-shadow: 0 6px 14px rgba(94, 211, 42, 0.35);
+  color: #fff;
+}
+.drawing-tools .download:active {
+  background: radial-gradient(circle at 30% 30%, #79be49, #3fb71e);
+  box-shadow: 0 6px 14px rgba(63, 183, 30, 0.35);
+  color: #fff;
+}
+.drawing-tools .delete{
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #c22b2b);
+  color: #fff;
+}
+.drawing-area .delete:hover {
+  background: radial-gradient(circle at 30% 30%, #ff4c4c, #e01e1e);
+  box-shadow: 0 6px 14px rgba(224, 30, 30, 0.35);
+  color: #fff;
+}
+.drawing-tools .delete:active {
+  background: radial-gradient(circle at 30% 30%, #ec5858, #9f1e1e);
+  box-shadow: 0 6px 14px rgba(139, 30, 17, 0.35);
+  color: #eea1a1;
+}
+
+/* compact helper row for small screens */
+@media (max-width: 900px) {
+  .drawing-area {
+    flex-direction: column;
+  }
+  .drawing-tools {
+    flex: 0 0 auto;
+    width: 100%;
+    order: 2;
+    margin-top: 8px;
+  }
+}
+
+/* small delete button placed near meta */
+.meta-delete {
+  margin-top: 6px;
+  padding: 4px 8px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  
+}
+.meta-delete .delete-icon { width:16px; height:16px; display:block; object-fit:contain; pointer-events:none; }
+
+.meta-delete:hover {
+ background: radial-gradient(circle at 30% 30%, #ff4c4c, #e01e1e);
+  box-shadow: 0 6px 14px rgba(224, 30, 30, 0.35);
+  color: #fff;
+}
+
+/* visible toast container */
+.toast-container {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+  pointer-events: none; 
+}
+
+/* toast */
+.toast {
+  pointer-events: auto;
+  background: #fff;
+  color: #111;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(10,12,30,0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+  min-width: 220px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+.toast--info { border-left: 4px solid #2b7cff; }
+.toast--warn { border-left: 4px solid #f59e0b; }
+.toast--error { border-left: 4px solid #ef4444; }
+
+/* undo button inside toast */
+.toast .undo {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+  font-weight: 700;
+}
+
+/* accessible focus ring for focusable controls (signifier) */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.16);
+  border-color: rgba(59,130,246,0.28);
+}
+
+/* clickable signifier for items */
+.clickable {
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, pointer;
+}
+.clickable:hover { transform: translateY(-2px); transition: transform .12s ease; }
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .topbar {
+    width: 280px;
+    padding: 20px;
+  }
+  .logo {
+    font-size: 22px;
+    padding: 50px;
+  }
+  .nav-btn {
+    font-size: 16px;
+    padding: 10px 8px;
+  }
+  .container {
+    margin-left: 320px;  }
+  }
+
+/* app-level theme for Settings screen */
+body.settings-theme {
+  background-image: url('img/Backgrounds/dungeon_background3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f2f6fb; 
+  color: #102a43;
+}
+
+
+/* app-level theme for Report screen */
+body.report-theme {
+  background-image: url('img/Backgrounds/dungeon_background3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff7f8;
+  color: #3b0b0b;
+}
+
+
+
+/* ensure readable contrast for primary buttons in themed modes */
+body.settings-theme .button,
+body.report-theme .button {
+  color: inherit;
+  border-color: rgba(0,0,0,0.06);
+}
+
+
+/* Area that containst the settings options */
+.settings-area {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px;    
+  padding: 20px;         
+  max-width: 800px;
+  background: rgba(74, 64, 52, 1);
+  border: 3px solid #4B4A48;
+  border-radius: 6px;
+  box-shadow:  20px 8px 20px rgba(10, 12, 30, 0.04);
+  margin: 12px 12px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: rgba(74,64,52,1);
+  border: 2px solid #000002;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;     
+}
+
+/* ensure  checkbox still shows pointer */
+.setting-item input[type="checkbox"] {
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;   
+}
+
+/* keep the visible label styling separate */
+.setting-label {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: rgba(255,151,32,1);
+  margin: 0;
+  cursor : url('img/Cursors/pointer-cursor.png') 5 10, auto; 
+
+}
+
+/* label styling */
+.setting-item label {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  
+  
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            3px 2px 0 #000002;
+  margin: 0;
+}
+/* keep responsive behavior */
+@media (max-width: 560px) {
+  .setting-item { flex-direction: column; align-items: flex-start; }
+}
+/* inputs placement */
+.setting-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #2b7cff;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;   
+}
+
+/* make checkboxes look like switches on modern browsers */
+.setting-item .switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  background: #e7eefc;
+  border-radius: 16px;
+  border: 1px solid rgba(2,6,23,0.06);
+  display: inline-block;
+  vertical-align: middle;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;   
+  
+}
+.setting-item .switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(12,18,34,0.08);
+  transition: transform .16s ease;
+}
+.setting-item input[type="checkbox"]:checked + .switch {
+  background: linear-gradient(180deg,#cfe8ff,#9fd1ff);
+}
+.setting-item input[type="checkbox"]:checked + .switch::after {
+  transform: translateX(18px);
+}
+
+/* small-screen: stack label above control */
+@media (max-width: 560px) {
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .setting-item label {
+    margin-bottom: 6px;
+  }
+}
+
+/* Make section flow normally so the title stays above content */
+section#settings,
+section#report {
+  position: relative;
+  display: block;   /* NOT flex - keeps the title on its own row */
+  padding: 22px;
+}
+
+/* Force the section title to occupy the full row above content */
+section#settings > .section-title,
+section#report > .section-title {
+  display: block !important;
+  width: 100% !important;
+  flex: none !important;
+  order: 0 !important;
+  margin: 0 0 16px 0;
+  color: rgba(255, 151, 32, 1);
+  background: rgba(74, 64, 52, 1);
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            3px 2px 0 #000002;
+  z-index: 4;
+}
+
+/* Left column: settings / report form */
+.settings-area,
+.report-forum.settings-area {
+  border: 3px solid #4B4A48;
+  display: flex;
+  margin-right: 420px; /* reserve room for the absolutely positioned illustration */
+  padding: 18px;
+  max-width: none;
+}
+
+/* Place the illustration at a fixed spot on the right for both screens */
+section#settings .settings-illustration,
+section#report .settings-illustration {
+  position: absolute !important;
+  right: 48px;
+  top: 120px;
+  width: 360px;
+  max-width: 38%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+  filter: blur(2px);
+  margin: 0;
+  z-index: 2;
+}
+
+.description-Dungeon{
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+  margin: 16px ;
+}
+
+.description-Dungeon-centered{
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+  margin: -2px 16px 16px 16px ;
+}
+
+.label-dungeon{
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            3px 2px 0 #000002;
+  margin: 16px ;
+}
+
+/* Responsive: stack layout on narrow screens */
+@media (max-width: 900px) {
+  section#settings,
+  section#report {
+    padding: 16px;
+  }
+  .settings-area,
+  .report-forum.settings-area {
+    margin-right: 0;
+  }
+  section#settings .settings-illustration,
+  section#report .settings-illustration {
+    position: static !important;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+    align-self: center;
+  }
+}
+
+/* Report forum: single card-like container with spacing between items and the submit button */
+.report-forum {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;       
+  padding: 20px;
+  max-width: 820px;
+  background: #4A4034;
+  border: 3px solid #4B4A48;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(10,12,30,0.04);
+}
+
+/* keep each row compact and balanced */
+.report-forum .setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* labels / headers inside the report card */
+.report-forum .setting-item label,
+.report-forum .setting-item h3 {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            3px 2px 0 #000002;
+}
+
+/* textarea full width and comfortable height */
+.report-forum textarea#issueDescription {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  font-family: inherit;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* align submit button to the right, make it stand out */
+.report-forum .submitReportBtn {
+   font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 160px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: transparent;
+  border: 2px solid #000002;
+  color: #FF9720;
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+}
+.report-forum .submitReportBtn:hover {
+  background: radial-gradient(circle at 30% 30%, #9de06a, #5ed32a);
+  box-shadow: 0 6px 14px rgba(94, 211, 42, 0.35);
+  color: #fff;
+}
+.report-forum .submitReportBtn:active {
+  background: radial-gradient(circle at 30% 30%, #79be49, #3fb71e);
+  box-shadow: 0 6px 14px rgba(63, 183, 30, 0.35);
+  color: #fff;
+}
+
+.issues{
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+}
+/* on small screens stack and make submit full width */
+@media (max-width: 720px) {
+  .report-forum {
+    padding: 14px;
+  }
+  .report-forum .setting-item {
+    flex-direction: column;
+  }
+  .report-forum .setting-item.toggle {
+    cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+  }
+  .report-forum .submitReportBtn {
+    align-self: stretch;
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* guardian modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-overlay.hidden { display: none; }
+
+.modal {
+  background: #4A4034;
+  border-radius: 12px;
+  padding: 18px;
+  width: 320px;
+  max-width: 90%;
+  box-shadow: 0 12px 40px rgba(6,10,20,0.4);
+  color: #FF9720;
+}
+.modal h3 { margin: 0 0 8px 0; font-size: 18px; }
+.modal .hint { margin: 0 0 12px 0; color: #FF9720; font-size: 14px; }
+.modal input[type="password"] {
+  width: 100%; padding: 8px 10px; margin-bottom: 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08);
+}
+.modal-actions { display:flex; gap:8px; justify-content:flex-end; }
+.modal-error { color: #b91c1c; font-size: 13px; min-height: 18px; }
+
+/* guardian extra area */
+.guardian-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 6px;
+  border-top: 1px dashed #000002;
+}
+
+/* make setting-item clickable and keep internal controls interactive */
+.setting-item.toggle { cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;    }
+.setting-item.toggle input { cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;    }
+
+/* New styles for post media */
+.card-media { margin: 12px 0; text-align: center; }
+.post-image { max-width: 100%; border-radius: 8px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); display: inline-block; }
+.market-badge {
+  margin-left: 8px;
+  padding: 4px 8px;
+  background: linear-gradient(90deg,#fff9e6,#fff3cc);
+  color: #6b4a00;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 12px;
+  align-self: center;
+}
+
+/* reduce padding for the Award button on posts that include a drawing */
+.card.has-media .like-btn {
+  margin-top: -25px;
+ 
+  font-size: 14px;
+}
+.card.has-media .like-btn .like-label {
+  margin-left: 6px;
+  font-size: 20px;
+}
+
+.card.has-media .time{
+  margin-top: -25px;
+}
+
+.prototype {
+  background: scroll;
+  color: var(--pixel);
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 8px;
+  border: none;
+}
+
+.prototype:hover {
+  background: var(--bulletboard);
+  color: var(--pixel);
+  border: var(--muted);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
+}
+
+/* Safety Modal Specifics */
+.safety-modal {
+  max-width: 420px;
+  text-align: left;
+  border-top: 6px solid rgba(255, 151, 32, 1);
+}
+
+.safety-intro {
+  margin-bottom: 16px;
+  
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: var(--card);
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+  
+}
+
+.safety-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  background: var(--paper);
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--hovered);
+
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  color: var(--card);
+ 
+
+}
+
+.safety-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.safety-item input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: #2b7cff;
+  cursor: url('img/Cursors/pointer-cursor.png') 5 10, auto;
+}
+
+.safetyTitle{
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 151, 32, 1);
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+  
+}
+
+/* Disabled button state */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.safety-button{
+    font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 90px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: transparent;
+  border: 2px solid #000002;
+  color: #FF9720;
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+}
+.safety-button:hover {
+  background: radial-gradient(circle at 30% 30%, #9de06a, #5ed32a);
+  box-shadow: 0 6px 14px rgba(94, 211, 42, 0.35);
+  color: #fff;
+}
+.safety-button:active {
+  background: radial-gradient(circle at 30% 30%, #79be49, #3fb71e);
+  box-shadow: 0 6px 14px rgba(63, 183, 30, 0.35);
+  color: #fff;
+}
+
+.safety-button-cancel{
+    font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 90px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: transparent;
+  border: 2px solid #000002;
+  color: #FF9720;
+  text-shadow: 
+            -1px -1px 0 #000002,  
+            1px -1px 0 #000002,
+            -1px 1px 0 #000002,
+            1.5px 1.5px 0 #000002;
+}
+.safety-button-cancel:hover {
+  background: radial-gradient(circle at 30% 30%, #d0443f, #a83232);
+  box-shadow: 0 6px 14px rgba(214, 60, 52, 0.35);
+  color: #fff;
+}
+.safety-button-cancel:active {
+  background: radial-gradient(circle at 30% 30%, #a83232, #7a2929);
+  box-shadow: 0 6px 14px rgba(214, 60, 52, 0.35);
+  color: #fff;
+}
+
+/* Active challenge card in profile */
+.active-challenge-card {
+  background: var(--paper);
+  border: 2px solid #6e97d3;
+  border-left: 5px solid #587fd9; 
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+}
+
+.active-challenge-card h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.active-challenge-card .reward-text {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.active-challenge-card .leave-btn {
+  align-self: flex-end;
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-top: 6px;
+
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 1px;
+  
+  background: #fef2f2;
+  
+  border: 2px solid #b5b5db;
+  color: #87A5DB;
+  
+}
+
+.active-challenge-card .leave-btn:hover {
+  border: 2px solid #9c2f27;
+  color: #020306;
+  background: #e04545;
+}
+
+/* Visual feedback for joined buttons on the main challenge screen */
+button.joined-state {
+  background-color: #10b981; 
+  border-color: #10b981;
+  cursor: default;
+  opacity: 0.9;
+}
+
+.lightskyBtn{
+     font-family: "Jersey 10", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  align-self: flex-end;
+  min-width: 160px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: #323F58;
+  border: 2px solid #b5b5db;
+  color: #87A5DB;
+  
+}
+.lightskyBtn:hover {
+  background: radial-gradient(circle at 30% 30%, #9de06a, #5ed32a);
+  box-shadow: 0 6px 14px rgba(94, 211, 42, 0.35);
+  color: #fff;
+}

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PixiWorld</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  
+    
+  </head>
+  <body>
+    <div id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <!-- visible toast container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="false"></div>
+    <header class="topbar">
+      <div class="logo">
+        <img
+          src="img/Logos/PixiLogo.png"
+          alt="PixiWorld Logo"
+          class="logo-img"
+          
+        />
+        PIXIWORLD
+      </div>
+      <nav class="nav">
+        <!-- I am using data-view for navigation buttons -->
+        <button data-view="feed" class="nav-btn active">
+          <img
+            class="icon"
+            src="img/Icons/feed-icon.svg"
+            alt="Feed Icon"
+          />Community 
+        </button>
+        <button data-view="profile" class="nav-btn">
+          <img
+            class="icon"
+            src="img/Icons/profile-icon.svg"
+            alt="Profile Icon"
+          />Profile
+        </button>
+        <button data-view="challenges" class="nav-btn">
+          <img
+            class="icon"
+            src="img/Icons/challenge-icon.svg"
+            alt="Challenges Icon"
+          />Challenges
+        </button>
+        <button data-view="drawing" class="nav-btn">
+          <img
+            class="icon"
+            src="img/Icons/drawing-icon.svg"
+            alt="Drawing Table Icon"
+          />Drawing Table
+        </button>
+        
+      </nav>
+      <nav class="help-section">
+      <button id="Settings" data-view="settings" class="nav-btn">
+        <img
+          class="icon"
+          src="img/Icons/setting-icon.svg"
+          alt="Settings Icon"
+        />Settings
+      </button>
+      <button id="Report" data-view="report" class="nav-btn report-btn">
+        <img
+          class="icon"
+          src="img/Icons/report-icon.svg"
+          alt="Report Icon"
+        />Report a Problem
+      </button>
+    </nav>
+    <button id="clearFeedBtn" class="prototype" type="button" style="margin-top: 15px; width: 40%; font-size: 14px; margin-left: 80px; padding: 6px 10px;">
+        <img
+          class="icon"
+          src="img/Icons/testing-icon.svg"
+          alt="Testing Icon"
+        />Prototyping Tool: Reset LocalStorage
+      </button>
+    </header>
+
+    <main class="container">
+      <!-- Feed -->
+      <section id="feed" class="screen">
+        <h2 class="section-title_feed">
+           <span>Community Board - Closes at 21:00 every weekday</span>
+           <span id="clock" class="clock" aria-live="polite" aria-atomic="true"></span> 
+        </h2>
+        
+        
+        <div id="feedList" class="card-grid"></div>
+        
+        <!-- Add a post button -->
+        <div style="text-align: left; margin-top: 90px">
+          <div class="post-form" style="margin-top: 60px">
+            <h3 class="h3" style="  letter-spacing:1px;">Write a Post!</h3>
+            <textarea
+              id="postInput"
+              placeholder="Share something..."
+              rows="4"
+            ></textarea>
+            <div class="post-form-buttons" style="text-align: right">
+          
+              <button id="postBtn" class="primary">Post</button>
+            </div>
+          </div>
+          <!-- Rules card -->
+          <div
+            class="rules-card post-form"
+            role="region"
+            aria-labelledby="rulesHeading"
+            aria-describedby="rulesDesc"
+            tabindex="0"
+            style="margin-top: 440px"
+          >
+            <div class="rules-header">
+              <h3 class="h3">The rules of the land!📜</h3>
+            </div>
+
+            <!-- short description for screen readers -->
+
+            <p id="rulesDesc" class="sr-only">
+              Community rules: be kind, do not share personal info, use
+              appropriate language, report bullying, and have fun.
+            </p>
+
+            <ul class="rules-list">
+              <li style="margin-top: 10px;"><strong>Be kind.</strong> Be respectful to others.</li>
+              <li style="margin-top: 10px;">
+                <strong>Keep it safe.</strong> Do not share personal
+                information.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>Stay appropriate.</strong> Use suitable language and
+                content.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>Report problems.</strong> Tell a moderator about
+                bullying or inappropriate behavior.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>Have fun.</strong> Be creative and enjoy the community.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile -->
+      <section id="profile" class="screen hidden">
+        <h2 class="section-title">Profile</h2>
+
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="avatar-wrap" style="position: relative">
+              <div
+                id="profileAvatar"
+                class="avatar large"
+                alt="avatar large"
+              ></div>
+              <button
+                id="editAvatarBtn"
+                class="avatar-edit"
+                title="Edit avatar"
+              >
+                ✏️
+              </button>
+              <input
+                id="avatarInput"
+                type="file"
+                accept="image/*"
+                style="display: none"
+              />
+            </div>
+            <div>
+            <h3 class="name" id="editName">LunaThaMage</h3>
+            <div class="meta">@Luna_Tha_Mage • 11 yrs</div>
+
+          <!-- Friends / community members -->
+            <div class="friends-row">
+              <div class="meta" id="friendsLabel">
+                <span id="friendsCount">11</span> Community Members
+              </div>
+              <div class="friends-actions">
+                
+              </div>
+            </div>
+          </div>
+          <div>
+          <h3 class="small-title">Bio</h3>
+          <p id="editBio" class="bio">I love drawing animals and space art! School is cool and my favorite subject is math!</p>
+          </div>
+        </div>
+
+        
+        
+         <!-- User's own posts shown on profile -->
+       <h3 class="small-title" style="margin-top:18px">Your Posts</h3>
+       <div id="profilePosts" class="card-grid"></div>
+
+
+       <!-- Current Challenges -->
+       <h3 class="small-title" style="margin-top:18px">Active Challenges</h3>
+       <div id="profileChallenges" class="card-grid">
+         <!-- Active challenges will appear here -->
+         <div class="card empty">No active challenges yet. Go join one!</div>
+       </div>
+
+        <h3 class="small-title">Badges</h3>
+        <div class="badge-row">
+          <div class="badge">
+            <strong>Creative Star</strong>
+            <small>Shared 5 original art posts.</small>
+          </div>
+          <div class="badge">
+            <strong>Kind Member</strong>
+            <small>Posted 10 positive messages.</small>
+          </div>
+  
+        </div>
+        <button id="editProfileBtn" class="lightskyBtn" style="margin-top:25px">Edit Profile</button>
+      </section>
+
+      <!-- Challenges -->
+      <section id="challenges" class="screen hidden">
+        <h2 class="section-title">Challenges</h2>
+        <div class="challenge-list">
+          <div class="challenge-card">
+            <h4>🎨 Daily Doodle</h4>
+            <p>Draw a friendly monster and share it in the feed.</p>
+            <p><strong>Reward:</strong> Creative Star Badge</p>
+            <button class="primary">Join Challenge</button>
+          </div>
+        
+          <div class="challenge-card">
+            <h4>🤝 Team Player</h4>
+            <p>Participate in a co-creation challenge with friends.</p>
+            <p><strong>Reward:</strong> Team Player Badge</p>
+            <button class="primary">Join Challenge</button>
+          </div>
+          <div class="challenge-card">
+            <h4>🌟 Award week</h4>
+            <p>Award a firend.</p>
+            <p><strong>Reward:</strong> Weekly Award Badge</p>
+            <button class="primary">Join Challenge</button>
+          </div>
+          <div class="challenge-card">
+            <h4>🎭 Story Creator</h4>
+            <p>Create and share a story with a twist ending.</p>
+            <p><strong>Reward:</strong> Story Creator Badge</p>
+            <button class="primary">Join Challenge</button>
+          </div>
+          <div class="challenge-card">
+            <h4>🏆 Pixel Master</h4>
+            <p>Complete 10 pixel art challenges.</p>
+            <p><strong>Reward:</strong> Pixel Master Badge</p>
+            <button class="primary">Join Challenge</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Drawing table -->
+      <section id="drawing" class="screen hidden">
+        <h2 class="section-title">Drawing Sandbox</h2>
+        <div class="drawing-area">
+          <canvas id="drawingCanvas"></canvas>
+          <div class="drawing-tools">
+            <label for="colorPicker">Color:</label>
+            <input type="color" id="colorPicker" value="#000000" />
+            <label for="brushSize">Brush Size:</label>
+            <input
+              type="range"
+              id="brushSize"
+              min="1"
+              max="50"
+              value="5"
+            />
+            <input id="marketPrompt" type="text" placeholder="Optional prompt / title for marketplace" style="flex:1; margin-left:8px; padding:6px 8px; border-radius:8px; border:1px solid rgba(0,0,0,0.08)" />
+            <button id="postDrawingMarketBtn" class="button" title="Post drawing to Marketplace">Post to Marketplace</button>
+            <button id="undoCanvasBtn" class="button">Undo</button>
+            <button id="clearCanvasBtn" class="button delete">Clear Canvas</button>
+            <button id="saveCanvasBtn" class="button download">Download drawing</button>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- settings -->
+      <section id="settings" class="screen hidden">
+        <h2 class="section-title dungeon">Settings</h2>
+       
+        <div class="settings-area">
+          <label class="setting-item toggle">
+            <span>
+              <label for="notificationToggle" class="setting-label">Notifications:</label>
+            </span>
+            <input type="checkbox" id="notificationToggle" unchecked />
+          </label>
+          <label class="setting-item toggle">
+            <span>
+              <label for="darkmodeToggle" class="setting-label">Darkmode:</label>
+            </span>
+            <input type="checkbox" id="darkmodeToggle" unchecked />
+          </label>
+          
+          <h3 class="label-dungeon">Accessibility Settings</h3>
+          <p class="description-Dungeon" style="margin-top: -10px;">Adjust these settings to make PixiWorld more comfortable for you.</p>
+          <label class="setting-item toggle">
+            <span>
+              <label for="notificationToggle" class="setting-label">Light sensitivity:</label>
+            </span>
+            <input type="checkbox" id="notificationToggle" unchecked />
+          </label>
+          <label class="setting-item toggle">
+            <span>
+              <label for="clockflickerToggle" class="setting-label" alt="Toggle clock flickering animation">Clock flickering:</label>
+            </span>
+            <input type="checkbox" id="clockflickerToggle" checked />
+          </label>
+          <label class="setting-item toggle">
+            <span>
+              <label for="slowPostsToggle" class="setting-label" alt="Slow post down, slows posts down into intervals">Slow Posts:</label>
+            </span>
+            <input type="checkbox" id="slowPostsToggle" unchecked />
+          </label>
+          <label class="setting-item toggle">
+            <span>
+              <label for="reducedMotionToggle" class="setting-label" alt="Reduces the motion on screen">Prefer Reduced Motion:</label>
+            </span>
+            <input type="checkbox" id="reducedMotionToggle" unchecked />
+          </label>
+          
+
+          <!-- Guardian settings -->
+          <div class="setting-item" id="guardianToggle">
+            <h3 class="label-dungeon">Guardian Settings</h3>
+            <p class="description-Dungeon">Your guardian can use these settings to help manage your account and ensure a safe experience.</p>
+          </div>
+
+         <!-- placeholder for guardian-only controls (populated after unlock) -->
+         <div id="guardianExtra" class="guardian-extra hidden" aria-hidden="true"></div>
+        <!-- guardian unlock modal -->
+        <div id="guardianModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="guardianModalTitle">
+          <div class="modal">
+           <h3 id="guardianModalTitle">Enter guardian code</h3>
+           <p class="hint">Hint: 1234</p>
+            <input id="guardianCodeInput" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="Enter code" />
+            <div class="modal-actions">
+              <button id="guardianCancelBtn" class="safety-button-cancel">Cancel</button>
+              <button id="guardianSubmitBtn" class="safety-button">Unlock</button>
+            </div>
+            <div id="guardianError" class="modal-error" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+          
+        </div>
+        <img src="img/icons/animated_torch.gif" alt="Settings Illustration" class="settings-illustration"/>
+      </section>
+
+      <!-- report -->
+      <section id="report" class="screen hidden">
+        <h2 class="section-title dungeon">Report a Problem</h2>
+       
+        <div class="report-forum settings-area">
+          <div class="setting-item">
+            <h3 class="h4">Report an Issue</h3>
+            <p class="description-Dungeon-centered">If you encounter any problems or inappropriate behavior, please let us know by filling out the form below. Our team will review your report and take appropriate action to ensure a safe and friendly community for everyone. All reports are anonymous.</p>
+          </div>
+          <div class="setting-item">
+            <label for="issueType">Issue Type:</label>
+            <select class="issues" id="issueType">
+              <option value="abuse">Abuse</option>
+              <option value="bullying">Bullying</option>
+              <option value="inappropriate">Inappropriate Behavior</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="setting-item">
+            <label for="issueDescription">Description:</label>
+            <textarea id="issueDescription" rows="4" placeholder="Describe the issue..."></textarea>
+          </div>
+          <button id="submitReportBtn" class="submitReportBtn">Submit Report</button>
+          
+          
+        </div>
+        <img src="img/icons/animated_torch.gif" alt="Settings Illustration" class="settings-illustration"/>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>PixiWorld — safe creative space for kids</small>
+    </footer>
+
+    <!-- ...existing code... -->
+
+    <!-- Safety Checklist Modal -->
+    <div id="safetyModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="safetyTitle">
+      <div class="modal safety-modal">
+        <h3 id="safetyTitle" class="safetyTitle">Wait! Safety Check 🛑</h3>
+        <p class="safety-intro">Before you share with the world, let's double-check:</p>
+        
+        <div class="safety-checklist">
+          <label class="safety-item">
+            <input type="checkbox" id="checkPersonal" />
+            <span>I am not sharing personal info (address, phone number).</span>
+          </label>
+          <label class="safety-item">
+            <input type="checkbox" id="checkKind" />
+            <span>My words are kind and respectful.</span>
+          </label>
+          <label class="safety-item">
+            <input type="checkbox" id="checkImage" />
+            <span>If I used an image, it is safe and appropriate.</span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button id="safetyCancelBtn" class="safety-button-cancel">Go Back</button>
+          <button id="safetyConfirmBtn" class="safety-button" disabled>Post It!</button>
+        </div>
+      </div>
+    </div>
+
+<!-- ...existing code... -->
+
+    <script src="data.js"></script>
+    <script src="logic_Feed.js"></script>
+    <script src="presentation.js"></script>
+    <script src="Logic.js"></script>
+    <script src="drawingLogic.js"></script>
+  </body>
+</html>
